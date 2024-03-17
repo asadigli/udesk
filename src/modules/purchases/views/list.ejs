@@ -1,0 +1,104 @@
+<%- include ('../../../views/layouts/head') %>
+        <div class="breadcrumbs">
+            <div class="breadcrumbs-inner">
+                <div class="row m-0">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="#">Table</a></li>
+                                    <li class="active"><%- title %></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
+                            </div>
+                            <div class="card-body" action="/sale/list" type="GET">
+                                <form class="form-group">
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="start_date">
+                                        <input type="date" class="form-control" name="end_date">
+                                        <input type="text" class="form-control" name="">
+                                        <input type="text" class="form-control" name="">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary" type="submit">Filter</button>
+                                          </div>
+                                     </div>
+                                </form>
+                                <!-- id="bootstrap-data-table"  -->
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Sale price</th>
+                                            <th>Discount rate</th>
+                                            <th><em class="fa fa-comment"></em> </th>
+                                            <th><em class="fa fa-user"></em> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% sales.forEach(function(sale){ %>
+                                            <tr>
+                                                <td><%- sale.id %></td>
+                                                <td><%- sale.product %></td>
+                                                <td><%- sale.quantity %></td>
+                                                <td><%- sale.sale_price.toFixed(2) %></td>
+                                                <td><%- sale.discount_rate > 0 ? sale.discount_rate + '%' : '0' %></td>
+                                                <td><a href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="<%- sale.comment %>"><em class="fa fa-comment" ></em></a> </td>
+                                                <td><a href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="<%- sale.seller %>"><em class="fa fa-user"></em></a></td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+
+<% var foot = `<script src="/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="/assets/js/init/datatables-init.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#bootstrap-data-table-export').DataTable();
+      setTimeout(() => {
+        $(".dataTables_filter label").css("float","right")
+      }, 500);
+    });
+</script>`; %>
+<%- include('../../../views/layouts/foot', {foot:foot}) %>

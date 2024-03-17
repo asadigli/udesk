@@ -1,0 +1,94 @@
+<%- include('../../../views/layouts/head') %>
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1><%- __('Dashboard') %></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="javascript:void(0)"><%- __('Dashboard') %></a></li>
+                            <li><a href="javascript:void(0)"><%- __('Profile') %></a></li>
+                            <li class="active"><%- user.name + ' ' + user.surname %></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title mb-3">---</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="mx-auto d-block">
+                            <img class="rounded-circle mx-auto d-block" src="assets/images/avatar/user.png"
+                                   style="width: 170px;"  alt="<%- user.name + ' ' + user.surname %>">
+                            <h5 class="text-sm-center mt-2 mb-1"><%- user.name + ' ' + user.surname %></h5>
+                            <div class="location text-sm-center"><i class="fa fa-map-marker"></i> California, United States</div>
+                        </div>
+                        <hr>
+                        <!-- <div class="card-text text-sm-center">
+                            <a href="#"><i class="fa fa-facebook pr-1"></i></a>
+                            <a href="#"><i class="fa fa-twitter pr-1"></i></a>
+                            <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
+                            <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <section class="card">
+                    <div class="twt-feed blue-bg">
+                        <div class="corner-ribon black-ribon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <div class="fa fa-twitter wtt-mark"></div>
+                        <div class="media">
+                            <a href="#">
+                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="<%- user.name + ' ' + user.surname %>" src="assets/images/avatar/user.png">
+                            </a>
+                            <div class="media-body">
+                                <h2 class="text-white display-6"><%- user.name + ' ' + user.surname %></h2>
+                                <p class="text-light">Project Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="twt-write col-sm-12">
+                        <table class="table table-hovered">
+                            <tbody>
+                                <tr>
+                                    <td class="bold"><%- __('Name') %></td>
+                                    <td><%- user.name %></td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"><%- __('Surname') %></td>
+                                    <td><%- user.surname %></td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"><%- __('Email') %></td>
+                                    <td><%- user.email %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<% var foot = ``; %>
+<%- include('../../../views/layouts/foot', {foot:foot}) %>
+

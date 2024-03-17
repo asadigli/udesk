@@ -1,0 +1,108 @@
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li <% if(link === 'home'){ %> class="active" <% } %> >
+                        <a href="/"><i class="menu-icon fa fa-laptop"></i><%- __('Dashboard') %> </a>
+                    </li>
+                    <li class="menu-item-has-children dropdown <% if(['employees','table'].includes(link)){ %> active <% } %>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="/tabs">Tabs</a></li>
+                        </ul>
+                    </li>
+                   
+                    <% if(exist_modules.includes("products")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-barcode"></i><%- __('Products') %> </a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/product/add"><%- __('Add product') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/product/list"><%- __('List') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("sales")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-usd"></i><%- __('Sales') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/sale/add"><%- __('Add sale') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/sale/list"><%- __('List') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("purchases")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-folder-open-o"></i><%- __('Purchases') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/purchase/add"><%- __('Add purchase') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/purchase/list"><%- __('List') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("customers")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-users"></i><%- __('Customers') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/customer/add"><%- __('Add customer') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/customer/list"><%- __('List') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("employees")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-users"></i><%- __('Employees') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/employee/add"><%- __('Add employee') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/employee/list"><%- __('Employees') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("tasks")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-tasks"></i><%- __('Tasks') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="#"><%- __('Add Task') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="#"><%- __('My tasks') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="#"><%- __('All tasks') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("expenses")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-money"></i><%- __('Expenses') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/expenses/expenditure/add"><%- __('Add expenditure') %></a></li>
+                            <li><i class="menu-icon fa fa-plus"></i><a href="/expenses/income/add"><%- __('Add income') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="/expenses/list"><%- __('List') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if(exist_modules.includes("loans")){ %> 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <i class="menu-icon fa fa-credit-card"></i><%- __('Loan') %></a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-plus"></i><a href="#"><%- __('Add loan') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="#"><%- __('Active loans') %></a></li>
+                            <li><i class="menu-icon fa fa-table"></i><a href="#"><%- __('Old loans') %></a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+    </aside>
